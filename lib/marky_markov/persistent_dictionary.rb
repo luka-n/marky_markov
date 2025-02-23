@@ -29,7 +29,7 @@ class PersistentDictionary < MarkovDictionary # :nodoc:
   # If the file exists it assigns the contents to a hash, 
   # otherwise it creates an empty hash.
   def open_dictionary
-    if File.exists?(@dictionarylocation)
+    if File.exist?(@dictionarylocation)
       file = File.new(@dictionarylocation, 'rb').read
       dictionary_pack = MessagePack.unpack(file)
       @depth = dictionary_pack["depth"]
@@ -61,7 +61,7 @@ class PersistentDictionary < MarkovDictionary # :nodoc:
     if dictionary.respond_to?(:dictionarylocation)
       dictionary = dictionary.dictionarylocation
     end
-    if File.exists?(dictionary)
+    if File.exist?(dictionary)
       File.delete(dictionary)
       "Deleted #{dictionary}"
     else

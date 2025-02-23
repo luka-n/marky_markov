@@ -70,7 +70,7 @@ when "speak"
       abort("Sorry, #{err}. I can't use it as a source.")
     end
   else
-    unless File.exists?("#{options[:dictionary]}.mmd")
+    unless File.exist?("#{options[:dictionary]}.mmd")
       STDERR.puts "Dictionary file #{options[:dictionary]}.mmd does not exist. Cannot generate sentence."
       STDERR.puts "Please build a dictionary with read or use the --source option to build a temporary dictionary."
       exit(false)

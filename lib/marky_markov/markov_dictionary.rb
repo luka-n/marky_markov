@@ -15,7 +15,7 @@ class MarkovDictionary # :nodoc:
 
   # Open supplied text file:
   def open_source(source)
-    if File.exists?(source)
+    if File.exist?(source)
       File.open(source, "r").read.split(@split_sentence)
     else
       raise FileNotFoundError.new("#{source} does not exist!")
